@@ -1,4 +1,6 @@
 import "reflect-metadata";
+const moduleAlias = require('module-alias')
+moduleAlias.addAlias('@base', __dirname);
 
 import { Container } from "typedi";
 import {Database} from './typeorm';
@@ -11,7 +13,6 @@ async function boot(){
 
       let seeder: Seeder = Container.get(Seeder)
       await seeder.seedall();
-
 
 
       let web: Web = Container.get(Web);

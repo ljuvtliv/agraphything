@@ -1,5 +1,8 @@
 import {I_Seed} from "./i_seed";
 import {AgentSeed,CatalogSeed,TypeSeed} from "./seeds/";
+import { Service } from "typedi";
+
+@Service()
 export class Seeder {
   private seeds:Array<I_Seed>;
   constructor(){

@@ -36,6 +36,7 @@
     "koa-router": "^7.4.0",
     "module-alias": "^2.2.0",
     "pg": "^7.10.0",
+    "redis": "^2.8.0",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^0.17.3",
     "typedi": "^0.8.0",
@@ -44,6 +45,6 @@
     "uuid": "^3.3.2"
   },
   "_moduleAliases": {
-  "@base": "./base"
+    "@base": "./base"
   }
 }

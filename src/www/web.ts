@@ -25,7 +25,7 @@ export class Web {
     this.router = router;
 
     this.koa.use(this.router.routes()).use(this.router.allowedMethods());
-    this.port = 4050;
+    this.port = Number.parseInt(process.env.PORT) || 4050;
   }
   async bootGraphQL() {
     let schema = await this.database.getSchema();

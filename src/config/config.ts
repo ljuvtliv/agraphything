@@ -1,4 +1,5 @@
 let production = {
+  runtime: 'production',
   url: process.env.DATABASE_URL,
   cache: {
       type: "redis",
@@ -8,6 +9,7 @@ let production = {
   }
 }
 let development =  {
+    runtime:'development',
     host: "localhost",
     port: 5432,
     username: "lambda",

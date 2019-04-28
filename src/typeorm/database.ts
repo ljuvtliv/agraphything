@@ -22,22 +22,30 @@ export const authChecker: AuthChecker<Context> = ({ context: { user, ctx } }, ro
 export class Database {
   connection: TypeORM.Connection;
   constructor() {
-    console.log("Database Construct")
   }
   async connect() {
-    console.log("Database Connect")
     TypeORM.useContainer(Container);
+    if(DB_CONN.runtime == 'production'){
+      this.connection = await TypeORM.createConnection({
+        type: "postgres",
+        url:DB_CONN.url,
+        entities: [Catalog, Agent, Image, Type],
+        synchronize: true,
+      });
 
-    this.connection = await TypeORM.createConnection({
-      type: "postgres",
-      host: "localhost",
-      port: 5432,
-      username: DB_CONN.username,
-      password: DB_CONN.password,
-      database: DB_CONN.database,
-      entities: [Catalog, Agent, Image, Type],
-      synchronize: true,
-    });
+    }else{
+      this.connection = await TypeORM.createConnection({
+        type: "postgres",
+        host: "localhost",
+        port: 5432,
+        username: DB_CONN.username,
+        password: DB_CONN.password,
+        database: DB_CONN.database,
+        entities: [Catalog, Agent, Image, Type],
+        synchronize: true,
+      });
+    }
+
     return true;
   }
   async getSchema() {

@@ -44,6 +44,6 @@
     "uuid": "^3.3.2"
   },
   "_moduleAliases": {
-  "@base"      : "./base",
+  "@base": "./base"
   }
 }

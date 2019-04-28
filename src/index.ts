@@ -1,4 +1,6 @@
 import "reflect-metadata";
+const moduleAlias = require('module-alias')
+moduleAlias.addAlias('@base', __dirname);
 if(process.env.HEROKU === "true"){
   console.log('PRODUCTION');
 }
@@ -13,7 +15,6 @@ async function boot(){
 
       let seeder: Seeder = Container.get(Seeder)
       await seeder.seedall();
-
 
 
       let web: Web = Container.get(Web);

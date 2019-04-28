@@ -1,5 +1,5 @@
 let production = {
-  "url": process.env.DATABASE_URL,
+  url: process.env.DATABASE_URL,
   cache: {
       type: "redis",
       options: {
@@ -20,4 +20,5 @@ if(process.env.HEROKU === "true"){
 }else{
   out = development;
 }
+console.log(out);
 export const DB_CONN = out;
